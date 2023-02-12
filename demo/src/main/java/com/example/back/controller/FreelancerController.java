@@ -1,6 +1,7 @@
 package com.example.back.controller;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.back.models.CategoriaModel;
 import com.example.back.models.FreelancerModel;
 import com.example.back.service.FreelancerService;
 
@@ -44,6 +46,10 @@ public class FreelancerController {
 		else
 			return "No se pudo eliminar el usuario con id "+id;
 		
+	}
+	@GetMapping(path="/{id}")
+	public Optional<FreelancerModel> obtenerFreelancerPorId(@PathVariable("id") Long id){
+		return this.freelancerService.obtenerFreelancerPorId(id);
 	}
 	
 	

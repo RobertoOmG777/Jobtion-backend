@@ -1,6 +1,7 @@
 package com.example.back.service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,9 @@ public class FreelancerService {
 	public ArrayList<FreelancerModel> getFreelancerByCategoriaId(Long Id){
 	
 		return freelancerRepository.findByCategoria_Id(Id);
+	}
+	public Optional<FreelancerModel> obtenerFreelancerPorId(Long id){
+		return freelancerRepository.findById(id);
 	}
 	public boolean eliminarFreelancer(Long id) {
 		try {
